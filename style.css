@@ -1,0 +1,190 @@
+/* ===== VARIABLES Y ESTILOS GLOBALES (MOBILE-FIRST) ===== */
+:root {
+    /* Tipografía Premium */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Poppins', sans-serif;
+    
+    /* Paleta de Colores Sofisticada */
+    --color-bg: #FDFBF8; /* Un blanco hueso cálido */
+    --color-dark-bg: #1a1a1a; /* Negro suave */
+    --color-primary-text: #2c2c2c;
+    --color-secondary-text: #707070;
+    --color-light-text: #e0e0e0;
+    --color-accent: #bda27e; /* Oro viejo */
+
+    --shadow: 0 10px 30px rgba(0,0,0,0.07);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-primary-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+.text-center { text-align: center; }
+
+/* ===== ANIMACIÓN DE SCROLL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== ENCABEZADO Y PIE DE PÁGINA ===== */
+.main-header {
+    padding: 1.5rem 1.5rem;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--color-light-text); /* Color claro para que se vea sobre el hero oscuro */
+}
+footer {
+    background-color: var(--color-dark-bg);
+    color: var(--color-secondary-text);
+    text-align: center;
+    padding: 4rem 1.5rem;
+    font-size: 0.9rem;
+}
+footer p { margin-bottom: 0.5rem; }
+
+/* ===== SECCIÓN HERO (IMPACTO VISUAL) ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 4rem 1.5rem;
+    color: var(--color-light-text);
+}
+.hero-image-container {
+    position: absolute;
+    inset: 0;
+    /* URL cambiada por una de tus imágenes de la galería para mejor efecto */
+    background: url('images/Atrio.jpg') no-repeat center center/cover;
+    filter: brightness(0.6);
+    z-index: -1;
+}
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 12vw, 7rem);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+.hero .subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* ===== ESTILOS GENERALES DE SECCIÓN ===== */
+.section { padding: 8rem 0; }
+.section-dark { padding: 6rem 0; background: var(--color-dark-bg); color: var(--color-light-text); }
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+.section-title.light { color: #fff; }
+.section-intro { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.2rem; }
+p { margin-bottom: 1.5rem; color: var(--color-secondary-text); }
+.content-text p { color: var(--color-secondary-text); }
+
+/* ===== DISEÑO DE CONTENIDO ASIMÉTRICO ===== */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* ===== GALERÍA ESTILO MASONRY (MOBILE-FIRST) ===== */
+.gallery {
+    display: grid;
+    /* En celulares, la galería será de una sola columna para que las fotos se vean grandes */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+/* SECCIÓN VISITA */
+.horarios-info {
+    border-top: 1px solid var(--color-accent);
+    display: inline-block;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+.horarios-info p {
+    font-size: 1.1rem;
+    color: var(--color-secondary-text); /* <-- CORREGIDO: cambiado de light-text a secondary-text */
+    margin: 0;
+}
+.horarios-info p strong { color: var(--color-accent); }
+
+/* ======================================================= */
+/* ===== ESTILOS PARA TABLET Y PANTALLAS MÁS GRANDES ===== */
+/* ======================================================= */
+@media (min-width: 768px) {
+    .container { padding: 0 40px; }
+    
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
+    }
+    
+    /* Invertir orden en la primera sección para asimetría */
+    #historia .content-grid .content-image {
+        order: 2;
+    }
+
+    .gallery {
+        /* En pantallas más grandes, la galería vuelve a tener 2 columnas */
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Las clases para el efecto Masonry se aplican aquí */
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+}
+
+/*
+EL SIGUIENTE BLOQUE .hero FUE ELIMINADO PORQUE ESTABA EN CONFLICTO
+CON EL HERO PRINCIPAL Y ROMPÍA EL DISEÑO.
+*/
