@@ -75,7 +75,7 @@ footer p { margin-bottom: 0.5rem; }
     position: absolute;
     inset: 0;
     /* URL cambiada por una de tus imágenes de la galería para mejor efecto */
-    background: url('images/Atrio.jpg') no-repeat center center/cover;
+    background: url('Atrio.jpg') no-repeat center center/cover;
     filter: brightness(0.6);
     z-index: -1;
 }
@@ -187,4 +187,5 @@ p { margin-bottom: 1.5rem; color: var(--color-secondary-text); }
 /*
 EL SIGUIENTE BLOQUE .hero FUE ELIMINADO PORQUE ESTABA EN CONFLICTO
 CON EL HERO PRINCIPAL Y ROMPÍA EL DISEÑO.
+
 */
